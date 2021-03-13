@@ -1,0 +1,28 @@
+(venv) [] $ salt-ssh -i '*' state.apply complex
+[ERROR   ] Rendering exception occurred
+Traceback (most recent call last):
+  File "/hom/xxxxx/coding/nffl/salt/venv/lib/python3.9/site-packages/salt/utils/templates.py", line 501, in render_jinja_tmpl
+    output = template.render(**decoded_context)
+  File "/hom/xxxxx/coding/nffl/salt/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/hom/xxxxx/coding/nffl/salt/venv/lib/python3.9/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/hom/xxxxx/coding/nffl/salt/venv/lib/python3.9/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 7, in top-level template code
+jinja2.exceptions.UndefinedError: 'salt.utils.context.NamespacedDictWrapper object' has no attribute 'top_level_'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/hom/xxxxx/coding/nffl/salt/venv/lib/python3.9/site-packages/salt/utils/templates.py", line 261, in render_tmpl
+    output = render_str(tmplstr, context, tmplpath)
+  File "/hom/xxxxx/coding/nffl/salt/venv/lib/python3.9/site-packages/salt/utils/templates.py", line 508, in render_jinja_tmpl
+    raise SaltRenderError("Jinja variable {}{}".format(exc, out), buf=tmplstr)
+salt.exceptions.SaltRenderError: Jinja variable 'salt.utils.context.NamespacedDictWrapper object' has no attribute 'top_level_'
+[CRITICAL] Rendering SLS 'base:complex' failed: Jinja variable 'salt.utils.context.NamespacedDictWrapper object' has no attribute 'top_level_'
+minion:
+    - Rendering SLS 'base:complex' failed: Jinja variable 'salt.utils.context.NamespacedDictWrapper object' has no attribute 'top_level_'
+(venv) [] $ echo $?
+0
+(venv) [] $ 
